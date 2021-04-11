@@ -1,0 +1,4 @@
+clubhouse-py
+pyvis
+prettytable
+panel
