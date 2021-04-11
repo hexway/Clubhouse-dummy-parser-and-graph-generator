@@ -2,7 +2,7 @@
 
 This script is an experimental PoC that allows you to collect data about CLubhouse user profiles and generate graphs based on the received data.
 
-Details about how we used that PoC during RedTeam project you will find in our blogpost: [LLLLLAAALLALA](https://hexway)  
+Details about how we used that PoC during RedTeam project you will find in our blogpost: [The short story about clubhouse user scraping and social graphs](https://hexway.io/research/short-story-about-clubhouse-user-scraping-and-social-graphs/)  
 
 ## Disclaimer
 
