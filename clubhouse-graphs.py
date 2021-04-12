@@ -44,6 +44,7 @@ parser.add_argument('--invited_by', help='Invitation graph for username')
 parser.add_argument('--inv_all', action='store_true', help='Show invitation graph for all users in local db')
 parser.add_argument('--group', help='Get users from group by group id')
 parser.add_argument('--find_by_bio', help='Find users with pattern in their bio')
+parser.add_argument('--phone', action='store_true', help='phone')
 parser.add_argument('-v', '--debug', action='store_true', help='Show debug info')
 args = parser.parse_args()
 
@@ -96,7 +97,7 @@ def create_db():
               "{} {},"
               "{} {},"
               "{} {},"
-              "{} {},"                     
+              "{} {}"                     
               ")".format("users",
                          "user_id", "INTEGER",
                          "name", "TEXT",
@@ -115,7 +116,7 @@ def create_db():
                          "invited_by_name", "TEXT",
                          "clubs", "TEXT",
                          "followers", "TEXT",
-                         "following","TEXT"))
+                         "following", "TEXT"))
     conn.commit()
     conn.close()
 
@@ -878,7 +879,10 @@ def parser_main(client):
        net.show(f'ch-search-{args.find_by_bio}.html')
        print(x)
        print(f"Done!\nFind graph in ch-search-{args.find_by_bio}.html file")
-
+   if args.phone:
+       cont = [{"name": "Test Name", "phone_number": "+79030991329"}]
+       rez = client.get_suggested_invites(contacts=cont)
+       print(rez)
 
 def user_authentication(client):
     """ (Clubhouse) -> NoneType
